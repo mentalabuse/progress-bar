@@ -1,0 +1,18 @@
+<div class="maincontainer">
+  <div class="listsContainer">
+      <form name="addList">
+        <input type="text" name="userName" placeholder="user name">
+        <input type="text" name="mentorName" placeholder=" mentor name">
+        <button type="submit">Add</button>
+      </form>
+    <div class="showList__header">Lists</div>
+    <div class="lists">
+    {{#each lists}}
+      <div class="list" id={{id}}>
+        <div>{{user}}</div>
+        <button class="deleteList"></button>
+      </div>
+    {{/each}}
+    </div>
+  </div>
+</div>

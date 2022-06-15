@@ -7,6 +7,8 @@ const FileStore = require('session-file-store')(session);
 require('dotenv').config()
 
 const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
+const addRouter = require('./routes/addList');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,6 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/', indexRouter);
+app.use('/addList', addRouter);
+app.use('/login', loginRouter);
 
 
 
