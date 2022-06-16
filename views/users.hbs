@@ -21,14 +21,14 @@
     <div class="employeeUsers">
         {{#each users}}
         <div class="employeeUser" id={{id}}>
-            <div>{{name}} - {{email}} - Admin status: {{admin}}</div>
+            <div class="userInfo">{{name}} - {{email}} - Admin status: {{admin}}</div>
 
             <label for="selectChanger">Change role:
                 <select id="selectChanger"  name="newEmployeeRole">
                     <option value="false">user</option>
                     <option value="true">admin</option>
                 </select>
-                <button class="{{id}}">Submit</button>
+                <button class="btnChangeRole">Submit</button>
             </label>
 
             <div><button class="deleteUser">DELETE USER</button></div>

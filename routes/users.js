@@ -49,6 +49,7 @@ router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { employeeRole } = req.body;
+    console.log(employeeRole);
     await User.update(
       {
         admin: employeeRole,
@@ -57,6 +58,9 @@ router.put('/:id', async (req, res) => {
         where: { id },
       },
     );
+    const userData = await User.findOne({ where: { id } });
+    const { name, email } = userData.dataValues;
+    res.json({ name, email });
   } catch (err) {
     console.log(err);
     res.sendStatus(404);
