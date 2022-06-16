@@ -12,7 +12,7 @@ const loginRouter = require('./routes/login');
 const addRouter = require('./routes/addList');
 const checklistRouter = require('./routes/checklist');
 const usersRouter = require('./routes/users');
-const hrCheckListRouter = require('./routes/hrCheckList')
+
 
 
 const app = express();
@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(async (req, res, next) => {
+app.use((req, res, next) => {
   if (req.session.userId) {
     res.locals.userId = req.session.userId;
     return next();
@@ -46,7 +46,6 @@ app.use('/addList', addRouter);
 app.use('/login', loginRouter);
 app.use('/checklist', checklistRouter);
 app.use('/users', usersRouter);
-app.use('/hrCheckList', hrCheckListRouter)
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);

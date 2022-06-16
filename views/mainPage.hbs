@@ -1,4 +1,4 @@
-<script defer src="/js/hrCheckList.js"></script>
+
 
 <div class="maincontainer">
   <!--  button for admin -->
@@ -17,8 +17,9 @@
     <div class="showList__header">Lists</div>
     <div class="lists">
     {{#each lists}}
-      <div class="list" id={{id}}>
+      <div class="list" id={{id}} data-id={{user_id}} data-usid={{../userId}}>
         <div>{{user}}</div>
+        <a href="/checklist/{{id}}">Show</a>
         <button class="deleteList"></button>
       </div>
     {{/each}}

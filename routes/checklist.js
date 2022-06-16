@@ -1,33 +1,24 @@
 const router = require('express').Router();
 const {User, List} = require('../db/models')
 
-router.get('/', async (req, res) => {
-  
-  const user = await User.findOne({where:{email:'admin@admin.com'}})
-  const hr = {
-    name: 'ALLa PAvlovna'
-  }
-  const list = await List.findAll();
-  res.render('checklist',{user ,hr, list});
+router.get('/:id', async (req, res) => {
+  const {id} = req.params
+  const list = await List.findOne({where: { id }});
+  const newList = JSON.parse(JSON.stringify(list))
+  console.log(newList);
+  res.render('checklist', newList );
 });
 
-router.put('/:name' , async (req,res) => {
-  
-  let changeStatus;
-  
-  const takeBox = await List.findOne({ where: { user_id: req.body.id } });
+router.put('/:id/:name/:val' , async (req, res) => {
+  const {id} = req.params
+  const takeBox = await List.findOne({where: { id }});
+  const {name, val} = req.params
+      await takeBox.update({
+        [name]: val
+      });
 
-    if (takeBox.req.params.name) {
-      changeStatus = await takeBox.update({
-        name: false,
-      });
-  
-    } else {
-      changeStatus = await takeBox.update({
-        name: true,
-      });
-  return res.json(changeStatus);
-    }
+  return res.sendStatus(200);
+    
 })
 
 

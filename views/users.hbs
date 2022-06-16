@@ -1,3 +1,5 @@
+<script defer src="/js/addUser.js"></script>
+
 <div>
     <div>
         <h2>Add new user</h2>
@@ -19,7 +21,7 @@
 
     <h2>Users lists</h2>
     <div class="employeeUsers">
-        {{#each users}}
+        {{#each newUsers}}
         <div class="employeeUser" id={{id}}>
             <div class="userInfo">{{name}} - {{email}} - Admin status: {{admin}}</div>
             <label for="selectChanger">Change role:
@@ -36,4 +38,5 @@
         </div>
         {{/each}}
     </div>
+    <button class="back"><a href="/mainPage">main page</a></button>
 </div>

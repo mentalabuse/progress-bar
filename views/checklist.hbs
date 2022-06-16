@@ -1,100 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checklist</title>
   <script defer src="/js/checklist.js"></script>
-</head>
-
-<body>
-
-  <div class="checklist">
-    {{#if user }}
-    <div>
-
-      
-    </div>
-    
-
-    Привет, <b>{{user.name}}! </b>
-    
+  
+  <div class="checklist" id={{id}}>
+    Привет, <b>{{user}}! </b>
     <p>
       И добро пожаловать в команду Высокогорья!
     </p>
-    Впереди нас ждет интересное путешествие в мир нашей компании, и самым главным проводником будет- <b>{{hr.name}} </b>
+    Впереди нас ждет интересное путешествие в мир нашей компании, и самым главным проводником будет- <b>{{mentor}} </b>
     Мы подготовили для тебя чек-лист на первый день. Процесс выполнения будет сохраняться, поэтому
     ты можешь закрывать пункты в удобном для тебя порядке.
-    {{/if}}
-
 
     <form name="checklistForm">
     <h3>Нужно подготовить твое рабочее место:</h3>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch1 name="ch1" /> Наставник выдал мне пропуск
+        <input type="checkbox" class="checkbox" {{#if ch1}}checked{{/if}} data-name = ch1 name="ch1" /> Наставник выдал мне пропуск
       </p>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch2 checked name="ch2" />Наставник сообщил пароль от Wi-Fi
+        <input type="checkbox" class="checkbox" {{#if ch2}}checked{{/if}} data-name = ch2 name="ch2" />Наставник сообщил пароль от Wi-Fi
       </p>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch3 name="ch3" />Системный администратор выдал мне ноутбук
+        <input type="checkbox" class="checkbox" {{#if ch3}}checked{{/if}} data-name = ch3 name="ch3" />Системный администратор выдал мне ноутбук
       </p>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch4 name="ch4" /> Системный администратор выдал мне доступы к почте
+        <input type="checkbox" class="checkbox" {{#if ch4}}checked{{/if}} data-name = ch4 name="ch4" /> Системный администратор выдал мне доступы к почте
       </p>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch5 name="ch5" />Ты отправил(-а) офис-менеджеру на почту список необходимой для тебя канцелярии
+        <input type="checkbox" class="checkbox" {{#if ch5}}checked{{/if}} data-name = ch5 name="ch5" />Ты отправил(-а) офис-менеджеру на почту список необходимой для тебя канцелярии
       </p>
-
-   
 
     <h3>Важно познакомиться с коллегами:</h3>
     
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch6 checked name="ch6" /> Ты познакомился (-ась) со своим руководителем
+        <input type="checkbox" class="checkbox" {{#if ch6}}checked{{/if}} data-name = ch6 name="ch6" /> Ты познакомился (-ась) со своим руководителем
       </p>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch7 name="ch7" /> Ты написал(-а) сообщение в командный чат
+        <input type="checkbox" class="checkbox" {{#if ch7}}checked{{/if}} data-name = ch7 name="ch7" /> Ты написал(-а) сообщение в командный чат
 
       </p>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch8 name="ch8" />Напиши имена трех твоих коллег по отделу: ____________
+        <input type="checkbox" class="checkbox" {{#if ch8}}checked{{/if}} data-name = ch8 name="ch8" /> Напиши имена трех твоих коллег по отделу: <input type="text" name="mates" data-name = mates {{#if mates}}value={{mates}}{{/if}}>
 
       </p>
-
-    
 
     <h3>Важно пройти оформление в отделе кадров:</h3>
     
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch9 name="ch9" /> Ты отправил (-а) сканды документы на оформление в отдел кадров
+        <input type="checkbox" class="checkbox" {{#if ch9}}checked{{/if}} data-name = ch9 name="ch9" /> Ты отправил (-а) сканды документы на оформление в отдел кадров
       </p>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch10 name="ch10" /> Ты подписал (-а) соглашение о коммерческой тайне
+        <input type="checkbox" class="checkbox" {{#if ch10}}checked{{/if}} data-name = ch10 name="ch10" /> Ты подписал (-а) соглашение о коммерческой тайне
       </p>
-
-   
-
 
     <h3>А теперь самое время работать:</h3>
     
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch11 name="ch11" /> Получи свою первую задачу у руководителя
+        <input type="checkbox" class="checkbox" {{#if ch11}}checked{{/if}} data-name = ch11 name="ch11" /> Получи свою первую задачу у руководителя
       </p>
       <p>
-        <input type="checkbox" class="checkbox" data-name = ch12 name="ch12" /> Создай подпись в почте по корпоративному шаблону
+        <input type="checkbox" class="checkbox" {{#if ch12}}checked{{/if}} data-name = ch12 name="ch12" /> Создай подпись в почте по корпоративному шаблону
       </p>
 
     </form>
   </div>
 
-
   <hr>
   <footer>Классного путешествия! <br>
     Команда Высокой горы 💚</footer>
-
-</body>
-
-</html>
