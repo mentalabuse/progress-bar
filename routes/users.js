@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../db/models');
+const bcrypt = require('bcrypt');
 
 // роутер /users
 router.get('/', async (req, res) => {
@@ -20,10 +21,11 @@ router.post('/', async (req, res) => {
       employeeMail,
       employeeRole,
     } = req.body;
+    const hashPass = await bcrypt.hash(employeePassword, 10)
     await User.create(
       {
         name: employeeName,
-        password: employeePassword,
+        password: hashPass,
         email: employeeMail,
         admin: employeeRole,
       },

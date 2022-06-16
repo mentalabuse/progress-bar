@@ -10,12 +10,6 @@ module.exports = {
       name: 'admin',
       password: await bcrypt.hash('admin', 10),
       admin: true
-    },
-    {
-      email: 'Artem@admin.com',
-      name: 'Artem',
-      password: await bcrypt.hash('admin', 10),
-      admin: true
     }]
     
     await queryInterface.bulkInsert('Users', superAdmin);

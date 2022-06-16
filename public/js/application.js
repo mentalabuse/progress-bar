@@ -1,5 +1,8 @@
-const {addList} = document.forms
+const {
+  addList
+} = document.forms
 const lists = document.querySelector('.lists')
+const logout = document.querySelector('.logout')
 
 addList.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -20,13 +23,14 @@ addList.addEventListener('submit', async (e) => {
   }
 });
 
-addList.addEventListener('click', async (event) => {
+logout.addEventListener('click', async (event) => {
   event.preventDefault();
 
-  if (event.target.classList.contains('logout')) {
-    const response = await fetch('/logout', {});
-    if (response.ok) {
-      window.location = '/';
-    }
+  const response = await fetch('/logout', {
+    method: 'POST',
+  });
+  if (response.ok) {
+    window.location = '/';
   }
+
 })
