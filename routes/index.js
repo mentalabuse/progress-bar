@@ -14,6 +14,16 @@ router.delete('/mainPage/:id', async (req, res) => {
   const {id} = req.params
   await List.destroy({where: {id}})
   res.sendStatus(200)
+});
+
+router.get('/logout', (req, res) => {
+  req.session.destroy((error) => {
+    if (error) {
+      res.sendStatus(500);
+    } else {
+      res.clearCookie('sign').json();
+    }
+  });
 })
 
 module.exports = router;
