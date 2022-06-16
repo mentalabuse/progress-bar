@@ -5,6 +5,7 @@ addEmployeeForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const fromData = new FormData(addEmployeeForm);
   const data = Object.fromEntries(fromData);
+  console.log(data);
 
   const response = await fetch('/users', {
     method: 'POST',
@@ -16,8 +17,8 @@ addEmployeeForm.addEventListener('submit', async (e) => {
 
   if (response.ok) {
     employeeUsers.insertAdjacentHTML('afterbegin', `
-      <div>${data.employeeName} - ${data.employeeMail} - ${data.emploeeRole}</div>
-      <button class="deleteUser">X</button>
+      <div>${data.employeeName} - ${data.employeeMail} - Admin status: ${data.employeeRole}</div>
+      <button class="deleteUser">DELETE USER</button>
     `);
   } else {
     alert('Что-то пошло не так');
