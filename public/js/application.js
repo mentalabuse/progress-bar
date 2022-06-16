@@ -18,4 +18,15 @@ addList.addEventListener('submit', async (e) => {
       <button class="deleteList"></button>
     `)
   }
+});
+
+addList.addEventListener('click', async (event) => {
+  event.preventDefault();
+
+  if (event.target.classList.contains('logout')) {
+    const response = await fetch('/logout', {});
+    if (response.ok) {
+      window.location = '/';
+    }
+  }
 })

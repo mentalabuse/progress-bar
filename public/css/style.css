@@ -53,6 +53,10 @@ body {
 }
 
 .deleteList {
-  width: 20px; 
+  width: 20px;
   height: 20px;
+}
+
+.employeeUser {
+  padding: 20px;
 }
