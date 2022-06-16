@@ -16,7 +16,7 @@ router.delete('/mainPage/:id', async (req, res) => {
   res.sendStatus(200)
 });
 
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   req.session.destroy((error) => {
     if (error) {
       res.sendStatus(500);
