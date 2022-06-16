@@ -10,8 +10,10 @@ require('dotenv').config();
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const addRouter = require('./routes/addList');
+const checklistRouter = require('./routes/checklist');
 const usersRouter = require('./routes/users');
 const hrCheckListRouter = require('./routes/hrCheckList')
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,6 +44,7 @@ app.use(async (req, res, next) => {
 app.use('/', indexRouter);
 app.use('/addList', addRouter);
 app.use('/login', loginRouter);
+app.use('/checklist', checklistRouter);
 app.use('/users', usersRouter);
 app.use('/hrCheckList', hrCheckListRouter)
 

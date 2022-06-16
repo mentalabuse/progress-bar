@@ -57,6 +57,13 @@ body {
   height: 20px;
 }
 
+.checklist {
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
 .employeeUser {
   padding: 20px;
 }

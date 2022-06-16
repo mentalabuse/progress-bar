@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    
+
     const superAdmin = [{
       email: 'admin@admin.com',
       name: 'admin',
