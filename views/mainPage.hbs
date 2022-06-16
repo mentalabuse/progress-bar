@@ -1,10 +1,14 @@
+<script defer src="/js/hrCheckList.js"></script>
+
 <div class="maincontainer">
   <div class="listsContainer">
       <form name="addList">
         <input type="text" name="userName" placeholder="user name">
         <input type="text" name="mentorName" placeholder=" mentor name">
         <button type="submit">Add</button>
+        <button class="logout">LOGOUT</button>
       </form>
+        <p><input type="checkbox" name="checkMyList" />  Только мои чек листы</p>
     <div class="showList__header">Lists</div>
     <div class="lists">
     {{#each lists}}
