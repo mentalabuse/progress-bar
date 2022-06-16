@@ -5,7 +5,6 @@ addEmployeeForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const fromData = new FormData(addEmployeeForm);
   const data = Object.fromEntries(fromData);
-  console.log(data);
 
   const response = await fetch('/users', {
     method: 'POST',

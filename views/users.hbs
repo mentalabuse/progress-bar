@@ -22,7 +22,6 @@
         {{#each users}}
         <div class="employeeUser" id={{id}}>
             <div class="userInfo">{{name}} - {{email}} - Admin status: {{admin}}</div>
-
             <label for="selectChanger">Change role:
                 <select id="selectChanger"  name="newEmployeeRole">
                     <option value="false">user</option>
@@ -31,7 +30,9 @@
                 <button class="btnChangeRole">Submit</button>
             </label>
 
-            <div><button class="deleteUser">DELETE USER</button></div>
+            <div>
+                <button class="deleteUser">DELETE USER</button>
+            </div>
         </div>
         {{/each}}
     </div>
