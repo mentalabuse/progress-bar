@@ -9,6 +9,7 @@ require('dotenv').config()
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const addRouter = require('./routes/addList');
+const checklistRouter = require('./routes/checklist');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -33,7 +34,7 @@ app.use(express.json());
 app.use('/', indexRouter);
 app.use('/addList', addRouter);
 app.use('/login', loginRouter);
-
+app.use('/checklist', checklistRouter);
 
 
 app.listen(PORT, () => {
