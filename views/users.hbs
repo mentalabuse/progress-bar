@@ -1,0 +1,38 @@
+<div>
+    <div>
+        <h2>Add new user</h2>
+        <p>You can add a new user and give him admin rights</p>
+    </div>
+
+    <div>
+        <form name="addEmployeeForm" id="employeeForm">
+            <input type="text" name="employeeName" placeholder="Input name">
+            <input type="email" name="employeeMail" placeholder="Input email">
+            <input type="password" name="employeePassword" placeholder="Input password">
+            <select name="employeeRole" form="employeeForm">
+                <option value="false">user</option>
+                <option value="true">admin</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <h2>Users lists</h2>
+    <div class="employeeUsers">
+        {{#each users}}
+        <div class="employeeUser" id={{id}}>
+            <div>{{name}} - {{email}} - Admin status: {{admin}}</div>
+
+            <label for="selectChanger">Change role:
+                <select id="selectChanger"  name="newEmployeeRole">
+                    <option value="false">user</option>
+                    <option value="true">admin</option>
+                </select>
+                <button class="{{id}}">Submit</button>
+            </label>
+
+            <div><button class="deleteUser">DELETE USER</button></div>
+        </div>
+        {{/each}}
+    </div>
+</div>
