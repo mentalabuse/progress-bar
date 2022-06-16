@@ -15,6 +15,7 @@ addList.addEventListener('submit', async (e) => {
   if (response.ok) {
     lists.insertAdjacentHTML('afterbegin', `
       <div>${data.userName}</div>
+      <button class="deleteList"></button>
     `)
   }
 })

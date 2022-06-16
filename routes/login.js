@@ -15,6 +15,7 @@ router.post('/', async (req, res) => {
       req.session.userId = user.id
       req.session.email = user.email
       req.session.name = user.name
+      req.session.admin = user.admin
       res.redirect('/mainPage')
     }
   }
