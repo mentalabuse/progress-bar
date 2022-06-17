@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const {User, List} = require('../db/models')
+const { checkSession, checkLogin } = require('../middleware/middleware');
 
 router.get('/', (req, res) => {
   res.render('index');
 });
 
-router.get('/mainPage',async (req, res) => {
+router.get('/mainPage',checkLogin, async ( req, res) => {
   const lists = await List.findAll()
-  res.render('mainPage', {lists});
+  return  res.render('mainPage', {lists});
 });
 
 router.delete('/mainPage/:id', async (req, res) => {
