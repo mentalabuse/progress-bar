@@ -1,9 +1,9 @@
 <script defer src="/js/addUser.js"></script>
 
-<div>
+<div class="usersLists">
     <div>
-        <h2>Add new user</h2>
-        <p>You can add a new user and give him admin rights</p>
+        <h2>Добавить нового пользователя</h2>
+        <p>Вы можете добавить нового пользователя и предоставить ему права администратора </p>
     </div>
 
     <div>
@@ -12,31 +12,31 @@
             <input type="email" name="employeeMail" placeholder="Input email">
             <input type="password" name="employeePassword" placeholder="Input password">
             <select name="employeeRole" form="employeeForm">
-                <option value="false">user</option>
-                <option value="true">admin</option>
+                <option value="false">пользователь</option>
+                <option value="true">администратор</option>
             </select>
-            <button type="submit">Add</button>
+            <button type="submit">Добавить</button>
         </form>
     </div>
 
-    <h2>Users lists</h2>
+    <h2>Пользовательские листы</h2>
     <div class="employeeUsers">
         {{#each newUsers}}
         <div class="employeeUser" id={{id}}>
             <div class="userInfo">{{name}} - {{email}} - Admin status: {{admin}}</div>
-            <label for="selectChanger">Change role:
+            <label for="selectChanger">Изменить роль:
                 <select id="selectChanger"  name="newEmployeeRole">
-                    <option value="false">user</option>
-                    <option value="true">admin</option>
+                    <option value="false">пользователь</option>
+                    <option value="true">администратор</option>
                 </select>
-                <button class="btnChangeRole">Submit</button>
+                <button class="btnChangeRole">Выбрать</button>
             </label>
 
             <div>
-                <button class="deleteUser">DELETE USER</button>
+                <button class="deleteUser">Удалить пользователя</button>
             </div>
         </div>
         {{/each}}
     </div>
-    <button class="back"><a href="/mainPage">main page</a></button>
+    <button class="back"><a href="/mainPage"  class="text">На главную</a></button>
 </div>
