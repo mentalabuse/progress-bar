@@ -1,3 +1,4 @@
+const e = require("express");
 
 
 const {
@@ -82,6 +83,18 @@ progresses.forEach(el => {
 })
 
 const copy = document.querySelectorAll('.copy')
+
+// function myFunction() {
+//     const lists = document.querySelector('.lists')
+//     list.addEventListener('click' ,(event) =>{
+//       e.preventDefault();
+//       const row = event.target.closest('[data-name]');
+//       const {name} = row.dataset;
+//     })
+//     const text = document.querySelector('.buttons > a').href
+//     console.log(text);
+// }
+
 
 copy.forEach(el => {
   el.addEventListener('click', (e) => {
