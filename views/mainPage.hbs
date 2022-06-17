@@ -1,6 +1,6 @@
 <div class="headercontainer">
   <img src="/img/mountain.png" alt="logo" class="logo">
-  <div class="headertitle">Высокая гора</div>
+  <div class="headertitle">Чек-листы</div>
   {{#if admin}}
   <a href="/users"><button type="button" class="btn btn-secondary">Пользователи</button></a>
   {{/if}}
@@ -28,18 +28,28 @@
 
 
 <div class="centerContent">
-    <div class="showList__header">Lists</div>
 
-
-        <p><input type="checkbox" name="checkMyList"/>  Только мои чек-листы</p>
+  <div class="checkListCont">
+  <p><input type="checkbox" name="checkMyList"/> Показать только мои чек-листы</p>
     <div class="lists">
     {{#each lists}}
-      <div class="list" id={{id}} data-id={{user_id}} data-usid={{../userId}}>
-        <div>{{user}}</div>
-        <a href="/checklist/{{id}}">Show</a>
-        <button class="deleteList"></button>
+      <div class="list part" id={{id}} data-id={{user_id}} data-usid={{../userId}}>
+      <div class="namementor">
+        <div>Сотрудник: {{user}}</div>
+        <div>Наставник: {{mentor}}</div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: {{precent}}%;" aria-valuenow={{precent}} aria-valuemin="0" aria-valuemax="100">{{precent}}%</div>
+        </div>
+      </div>
+        <div class="buttons">
+          <a href="/checklist/{{id}}"><button type="button" class="btn btn-success">Открыть</button></a>
+          <button type="button" class="btn btn-danger deleteList">Удалить</button>
+          <div class="copy"></div>
+        </div>
       </div>
     {{/each}}
+    </div>
+
     </div>
 
     </div>

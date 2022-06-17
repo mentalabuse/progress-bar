@@ -1,6 +1,18 @@
 <script defer src="/js/addUser.js"></script>
 
-<div class="usersLists">
+
+<div class="headercontainer">
+  <img src="/img/mountain.png" alt="logo" class="logo">
+  <div class="headertitle">Пользователи</div>
+  <a href="/mainPage"><button type="button" class="btn btn-secondary">Чек-листы</button></a>
+  <div>
+    <div class="hiuser">{{userName}}</div>
+    <button class="btn btn-secondary logout">Выйти</button>
+  </div>
+</div>
+
+<div>
+
     <div>
         <h2>Добавить нового пользователя</h2>
         <p>Вы можете добавить нового пользователя и предоставить ему права администратора </p>

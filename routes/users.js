@@ -54,7 +54,6 @@ router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { employeeRole } = req.body;
-    console.log(employeeRole);
     await User.update(
       {
         admin: employeeRole,

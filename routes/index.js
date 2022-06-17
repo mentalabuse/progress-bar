@@ -8,7 +8,18 @@ router.get('/', (req, res) => {
 
 router.get('/mainPage',checkLogin, async ( req, res) => {
   const lists = await List.findAll()
-  return  res.render('mainPage', {lists});
+  lists.forEach(el => {
+    const pretty = JSON.parse(JSON.stringify(el))
+    let total = 0
+    for (let key in pretty) {
+      if (pretty[key] != false && pretty[key] != '' && pretty[key] != null) {
+        total++
+      }
+    }
+    let precent = +(((total-6)/13)*100).toFixed()
+    el.precent = precent || 0
+  });
+  res.render('mainPage', {lists });
 });
 
 router.delete('/mainPage/:id', async (req, res) => {

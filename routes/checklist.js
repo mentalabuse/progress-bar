@@ -2,11 +2,11 @@ const router = require('express').Router();
 const { User, List } = require('../db/models');
 
 router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const list = await List.findOne({ where: { id } });
-  const newList = JSON.parse(JSON.stringify(list));
-  console.log(newList);
-  res.render('checklist', newList);
+  
+  const {id} = req.params
+  const list = await List.findOne({where: { id }});
+  const newList = JSON.parse(JSON.stringify(list))
+  res.render('checklist', newList );
 });
 
 router.put('/:id', async (req, res) => {
