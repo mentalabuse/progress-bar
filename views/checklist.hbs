@@ -1,4 +1,7 @@
   <script defer src="/js/checklist.js"></script>
+
+  <div class="checkListCont">
+
   <div class="checklist" id={{id}}>
     <div >
     Привет, <b id="userName" >{{user}}! </b>
@@ -78,10 +81,10 @@
     {{#if userId}}
     <form name="changeListEmployeer">
     <div class="editinputs">
-      <input type="text" name="userName" class="form-control" id="exampleInputEmail1" placeholder="Изменить имя сотрудника">
+      <input type="text" name="userName" class="form-control" id="exampleInputEmail1" placeholder="имя сотрудника">
     </div> 
     <div class="editinputs">
-      <input type="text" name="mentorName" class="form-control" id="exampleInputPassword1" placeholder="Изменить имя наставника">
+      <input type="text" name="mentorName" class="form-control" id="exampleInputPassword1" placeholder="имя наставника">
       <button type="submit" class="btn btn-primary addChB">Изменить</button>
     </div> 
   </form>
@@ -90,10 +93,13 @@
  </a>  
   {{/if}}
   </div>
+  <div>
    Классного путешествия! <br>
     Команда Высокой горы 💚
 
-   
+  </div>
+
+   </div>
 
   
 

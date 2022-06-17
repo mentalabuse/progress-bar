@@ -7,39 +7,45 @@
   <a href="/mainPage"><button type="button" class="btn btn-secondary">Чек-листы</button></a>
   <div>
     <div class="hiuser">{{userName}}</div>
-    <button class="btn btn-secondary logout">Выйти</button>
+    <button class="btn btn-secondary logout2">Выйти</button>
   </div>
 </div>
 
 <div>
 
-    <div>
-        <h2>Добавить нового пользователя</h2>
-        <p>Вы можете добавить нового пользователя и предоставить ему права администратора </p>
+    <div class="checkListCont">
+        <h3>Добавить нового пользователя</h3>
     </div>
 
-    <div>
-        <form name="addEmployeeForm" id="employeeForm">
-            <input type="text" name="employeeName" placeholder="Input name">
-            <input type="email" name="employeeMail" placeholder="Input email">
-            <input type="password" name="employeePassword" placeholder="Input password">
+  <div class="centerContent">
+
+  <form name="addEmployeeForm" id="employeeForm">
+  <div class="mb-3 addinputs">
+    <input type="text" name="employeeName" class="form-control" id="exampleInputEmail1" placeholder="Имя">
+    <input type="email" name="employeeMail" class="form-control" id="exampleInputPassword1" placeholder="Email">
+    <input type="password" name="employeePassword" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
             <select name="employeeRole" form="employeeForm">
-                <option value="false">пользователь</option>
-                <option value="true">администратор</option>
+                <option value="false">HR</option>
+                <option value="true">Admin</option>
             </select>
-            <button type="submit">Добавить</button>
-        </form>
-    </div>
+    <button type="submit" class="btn btn-primary addChB">Добавить</button>
+  </div>
+</form>
 
-    <h2>Пользовательские листы</h2>
-    <div class="employeeUsers">
+    </div>
+<div class="checkListCont">
+
+
+    <h2>Пользователи</h2>
+    <div class="lists">
         {{#each newUsers}}
+        <div class="list part">
         <div class="employeeUser" id={{id}}>
-            <div class="userInfo">{{name}} - {{email}} - Admin status: {{admin}}</div>
+            <div class="userInfo">{{name}} - {{email}} {{#if admin}} - Admin{{/if}}</div>
             <label for="selectChanger">Изменить роль:
                 <select id="selectChanger"  name="newEmployeeRole">
-                    <option value="false">пользователь</option>
-                    <option value="true">администратор</option>
+                    <option value="false">HR</option>
+                    <option value="true">Admin</option>
                 </select>
                 <button class="btnChangeRole">Выбрать</button>
             </label>
@@ -48,7 +54,7 @@
                 <button class="deleteUser">Удалить пользователя</button>
             </div>
         </div>
+        </div>
         {{/each}}
     </div>
-    <button class="back"><a href="/mainPage"  class="text">На главную</a></button>
 </div>

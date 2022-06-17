@@ -17,25 +17,7 @@ addEmployeeForm.addEventListener('submit', async (e) => {
   });
 
   if (response.ok) {
-    const userId = await response.json()
-    employeeUsers.insertAdjacentHTML('afterbegin', `
-    <div class="employeeUser" id=${userId}>
-    <div class="userInfo">${data.employeeName} - ${data.employeeMail} - Admin status: ${data.employeeRole}</div>
-    <label for="selectChanger">Change role:
-        <select id="selectChanger"  name="newEmployeeRole">
-            <option value="false">user</option>
-            <option value="true">admin</option>
-        </select>
-        <button class="btnChangeRole">Submit</button>
-    </label>
-
-    <div>
-        <button class="deleteUser">DELETE USER</button>
-    </div>
-  </div>
-    `);
-  } else {
-    alert('Что-то пошло не так');
+    window.location = '/users'
   }
 });
 
@@ -76,3 +58,18 @@ allBtnsChangersRole.forEach((el) => el.addEventListener('click', async (e) => {
     userInfo.textContent = `${result.name} - ${result.email} - Admin status: ${newRole}`;
   }
 }));
+
+
+const logout2 = document.querySelector('.logout2')
+
+
+logout2.addEventListener('click', async (event) => {
+  event.preventDefault();
+
+  const response = await fetch('/logout', {
+    method: 'POST',
+  });
+  if (response.ok) {
+    window.location = '/';
+  }
+})

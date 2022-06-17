@@ -65,6 +65,9 @@ body {
 .logout {
   margin-right: 30px;
 }
+.logout2 {
+  margin-right: 30px;
+}
 
 .listsContainer {
   width: 100%;
@@ -160,9 +163,7 @@ body {
   animation: copy 0.5s linear forwards;
 }
 
-.employeeUser {
-  padding: 20px;
-}
+
 
 
 @keyframes copy {
