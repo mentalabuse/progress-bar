@@ -21,7 +21,7 @@ router.post('/logout', (req, res) => {
     if (error) {
       res.sendStatus(500);
     } else {
-      res.clearCookie('sign').json();
+      res.clearCookie('sID').json();
     }
   });
 })

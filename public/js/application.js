@@ -32,7 +32,6 @@ logout.addEventListener('click', async (event) => {
   if (response.ok) {
     window.location = '/';
   }
-
 })
 
 

@@ -1,20 +1,37 @@
-
-
-<div class="maincontainer">
-  <!--  button for admin -->
-  <div class="navAdmin">
-    <div class="navLink"><a href="/users">Users lists</a></div>
+<div class="headercontainer">
+  <img src="/img/mountain.png" alt="logo" class="logo">
+  <div class="headertitle">Высокая гора</div>
+  {{#if admin}}
+  <a href="/users"><button type="button" class="btn btn-secondary">Пользователи</button></a>
+  {{/if}}
+  <div>
+    <div class="hiuser">{{userName}}</div>
+    <button class="btn btn-secondary logout">Выйти</button>
   </div>
-  <!--  end-->
+</div>
+
+    
+
   <div class="listsContainer">
-      <form name="addList">
-        <input type="text" name="userName" placeholder="user name">
-        <input type="text" name="mentorName" placeholder=" mentor name">
-        <button type="submit">Add</button>
-      </form>
-        <button class="logout">LOGOUT</button>
-        <p><input type="checkbox" name="checkMyList" />  Только мои чек листы</p>
+
+    <div class="centerContent">
+
+  <form name="addList">
+  <div class="mb-3 addinputs">
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Имя сотрудника">
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Имя наставника">
+    <button type="submit" class="btn btn-primary addChB">Добавить</button>
+  </div>
+</form>
+
+    </div>
+
+
+<div class="centerContent">
     <div class="showList__header">Lists</div>
+
+
+        <p><input type="checkbox" name="checkMyList"/>  Только мои чек-листы</p>
     <div class="lists">
     {{#each lists}}
       <div class="list" id={{id}} data-id={{user_id}} data-usid={{../userId}}>
@@ -24,5 +41,6 @@
       </div>
     {{/each}}
     </div>
-  </div>
+
+    </div>
 </div>

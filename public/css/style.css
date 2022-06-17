@@ -14,31 +14,56 @@ body {
   background-size: cover;
 }
 
+
+.headercontainer {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  margin-bottom: 50px;
+  height: 120px;
+  width: 100vw;
+  background: rgb(62, 135, 43);
+}
+
+.logo {
+  width: 100px;
+  margin-left: 30px;
+}
+
+.headertitle {
+  margin-right: 35%;
+  font-size: 40px;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 800px;
+  padding: 20px;
 }
 
-.headercontainer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 200px;
-}
-
-.logo {
-  width: 200px;
-}
-.enterButton {
-  margin: 30px;
-  width: 90px;
-  height: 40px;
-  border-radius: 20px;
+.indexHeader {
+  font-size: 20px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .maincontainer {
   display: flex;
+}
+
+.enterForm {
+  display: flex;
+  flex-direction: column;
+}
+
+/*  */
+
+
+.logout {
+  margin-right: 30px;
 }
 
 .listsContainer {
@@ -46,6 +71,24 @@ body {
   display: flex;
   margin-top: 20px;
   flex-direction: column;
+}
+
+.centerContent {
+  display: flex;
+  justify-content: center;
+}
+
+.addinputs {
+  display: flex;
+
+}
+
+.addChB {
+  margin-left: 10px;
+}
+
+.form-control {
+  margin-right: 10px;
 }
 
 .list {
