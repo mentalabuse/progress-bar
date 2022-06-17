@@ -7,6 +7,17 @@ router.get('/', (req, res) => {
 
 router.get('/mainPage',async (req, res) => {
   const lists = await List.findAll()
+  console.log(lists.map(el => {
+    const pretty = JSON.parse(JSON.stringify(el))
+    let total = 0
+    for (let key in pretty) {
+      console.log(pretty[key]);
+      if (pretty[key] != false && pretty[key] != '' && pretty[key] != null) {
+        total++
+      }
+    }
+    return total
+  }));
   res.render('mainPage', {lists});
 });
 

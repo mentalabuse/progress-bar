@@ -1,6 +1,6 @@
 <div class="headercontainer">
   <img src="/img/mountain.png" alt="logo" class="logo">
-  <div class="headertitle">Высокая гора</div>
+  <div class="headertitle">Чек-листы</div>
   {{#if admin}}
   <a href="/users"><button type="button" class="btn btn-secondary">Пользователи</button></a>
   {{/if}}
@@ -18,8 +18,8 @@
 
   <form name="addList">
   <div class="mb-3 addinputs">
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Имя сотрудника">
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Имя наставника">
+    <input type="text" name="userName" class="form-control" id="exampleInputEmail1" placeholder="Имя сотрудника">
+    <input type="text" name="mentorName" class="form-control" id="exampleInputPassword1" placeholder="Имя наставника">
     <button type="submit" class="btn btn-primary addChB">Добавить</button>
   </div>
 </form>
@@ -28,18 +28,27 @@
 
 
 <div class="centerContent">
-    <div class="showList__header">Lists</div>
 
-
-        <p><input type="checkbox" name="checkMyList"/>  Только мои чек-листы</p>
+  <div class="checkListCont">
+  <p><input type="checkbox" name="checkMyList"/> Показать только мои чек-листы</p>
     <div class="lists">
     {{#each lists}}
-      <div class="list" id={{id}} data-id={{user_id}} data-usid={{../userId}}>
-        <div>{{user}}</div>
-        <a href="/checklist/{{id}}">Show</a>
-        <button class="deleteList"></button>
+      <div class="list part" id={{id}} data-id={{user_id}} data-usid={{../userId}}>
+      <div class="namementor">
+        <div>Сотрудник: {{user}}</div>
+        <div>Наставник: {{mentor}}</div>
+        <div class="progress">
+          <div class="progress-bar " role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+        </div>
+      </div>
+        <div>
+          <a href="/checklist/{{id}}"><button type="button" class="btn btn-success">Открыть</button></a>
+          <button type="button" class="btn btn-danger deleteList">Удалить</button>
+        </div>
       </div>
     {{/each}}
+    </div>
+
     </div>
 
     </div>

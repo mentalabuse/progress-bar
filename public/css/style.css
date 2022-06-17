@@ -91,13 +91,44 @@ body {
   margin-right: 10px;
 }
 
-.list {
+.checkListCont {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.deleteList {
-  width: 20px;
-  height: 20px;
+.lists {
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.part {
+  padding: 10px;   
+  width: 270px;
+  height: 140px;
+  margin: 0 30px 30px 0;
+  border-radius: 5px;
+  border: 1px solid #EBEBF1;
+  opacity: .9;
+  background: ghostwhite;
+}
+
+.part:hover {
+  opacity: 1;
+  transition: 0.3s;
+  box-shadow: -3px 0px 40px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(164, 164, 164, 0.03);
+}
+
+.namementor {
+  overflow: hidden;
 }
 
 .checklist {
