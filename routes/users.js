@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User } = require('../db/models');
 const bcrypt = require('bcrypt');
 
-// роутер /users
 router.get('/', async (req, res) => {
   try {
     const users = await User.findAll();

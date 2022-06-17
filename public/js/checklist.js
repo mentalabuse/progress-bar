@@ -1,3 +1,5 @@
+
+
 const checklist = document.querySelector('.checklist')
 
 checklist.addEventListener('change', async (e) => {
@@ -17,3 +19,30 @@ checklist.addEventListener('change', async (e) => {
     });
   }
 });
+
+
+const {changeListEmployeer} = document.forms;
+console.log('changeListEmployeer: ', changeListEmployeer);
+
+
+changeListEmployeer.addEventListener('submit' , async (event) => {
+  event.preventDefault();
+  const fromData = new FormData(changeListEmployeer);
+  const data = Object.fromEntries(fromData);
+  
+  const response = await fetch(`/checklist/${checklist.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  if(response.ok) {
+
+    const bName = document.getElementById('userName');
+    const bMentor = document.getElementById('mentorName');
+    bName.textContent = `${data.userName}`;
+    bMentor.textContent= `${data.mentorName}`;
+  }
+})
+

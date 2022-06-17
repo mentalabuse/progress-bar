@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 require('dotenv').config();
-
+const { checkSession, checkLogin } = require('./middleware/middleware');
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const addRouter = require('./routes/addList');
@@ -31,22 +31,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use((req, res, next) => {
-  if (req.session.userId) {
-    res.locals.userId = req.session.userId;
-    res.locals.userName = req.session.name;
-    res.locals.admin = req.session.admin;
-    return next();
-  } next();
-})
+
+app.use(checkSession);
+
 
 app.use('/', indexRouter);
 app.use('/addList', addRouter);
 app.use('/login', loginRouter);
 app.use('/checklist', checklistRouter);
+app.use(checkLogin);
 app.use('/users', usersRouter);
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
 });
-

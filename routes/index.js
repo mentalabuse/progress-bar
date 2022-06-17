@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const {User, List} = require('../db/models')
+const { checkSession, checkLogin } = require('../middleware/middleware');
 
 router.get('/', (req, res) => {
   res.render('index');
 });
 
-router.get('/mainPage',async (req, res) => {
+router.get('/mainPage',checkLogin, async ( req, res) => {
   const lists = await List.findAll()
   lists.forEach(el => {
     const pretty = JSON.parse(JSON.stringify(el))

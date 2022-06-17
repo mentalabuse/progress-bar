@@ -187,3 +187,16 @@ body {
     background-size: cover;
   }
 }
+
+
+.editinputs {
+  display: flex;
+  width: 300px;
+  margin-right: 20px;
+}
+
+a.text {
+  text-decoration: none;
+  color: #666;
+}
+
