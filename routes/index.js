@@ -1,8 +1,11 @@
 const router = require('express').Router();
 const {User, List} = require('../db/models')
-const { checkSession, checkLogin } = require('../middleware/middleware');
+const {  checkLogin } = require('../middleware/middleware');
 
 router.get('/', (req, res) => {
+  if(req.session.userId) {
+    return res.redirect('/mainPage');
+  }
   res.render('index');
 });
 
