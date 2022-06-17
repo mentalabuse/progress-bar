@@ -38,12 +38,13 @@
         <div>Сотрудник: {{user}}</div>
         <div>Наставник: {{mentor}}</div>
         <div class="progress">
-          <div class="progress-bar " role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+          <div class="progress-bar" role="progressbar" style="width: {{precent}}%;" aria-valuenow={{precent}} aria-valuemin="0" aria-valuemax="100">{{precent}}%</div>
         </div>
       </div>
-        <div>
+        <div class="buttons">
           <a href="/checklist/{{id}}"><button type="button" class="btn btn-success">Открыть</button></a>
           <button type="button" class="btn btn-danger deleteList">Удалить</button>
+          <div class="copy"></div>
         </div>
       </div>
     {{/each}}

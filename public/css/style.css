@@ -117,7 +117,7 @@ body {
   margin: 0 30px 30px 0;
   border-radius: 5px;
   border: 1px solid #EBEBF1;
-  opacity: .9;
+  opacity: .8;
   background: ghostwhite;
 }
 
@@ -138,11 +138,52 @@ body {
   flex-direction: column;
 }
 
+.hide {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.copy {
+  transition: 1s;
+  background: url('../img/copy.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.copying {
+  animation: copy 0.5s linear forwards;
+}
+
 .employeeUser {
   padding: 20px;
 }
 
 
-.hide {
-  display: none;
+@keyframes copy {
+  0% {
+    background: url('../img/copy.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  30% {
+    background: url('../img/copy-2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  80% {
+    background: url('../img/copy-2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  100% {
+    background: url('../img/copy.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

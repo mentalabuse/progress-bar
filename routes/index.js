@@ -7,18 +7,18 @@ router.get('/', (req, res) => {
 
 router.get('/mainPage',async (req, res) => {
   const lists = await List.findAll()
-  console.log(lists.map(el => {
+  lists.forEach(el => {
     const pretty = JSON.parse(JSON.stringify(el))
     let total = 0
     for (let key in pretty) {
-      console.log(pretty[key]);
       if (pretty[key] != false && pretty[key] != '' && pretty[key] != null) {
         total++
       }
     }
-    return total
-  }));
-  res.render('mainPage', {lists});
+    let precent = +(((total-6)/13)*100).toFixed()
+    el.precent = precent || 0
+  });
+  res.render('mainPage', {lists });
 });
 
 router.delete('/mainPage/:id', async (req, res) => {
