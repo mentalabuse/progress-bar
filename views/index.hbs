@@ -1,15 +1,19 @@
-<div class="container">
+
   <div class="headercontainer">
     <img src="/img/mountain.png" alt="logo" class="logo">
-    <h1>Высокая гора</h1>
+    <div class="headertitle">Высокая гора</div>
   </div>
   <div class="container">
-  <h3>Привет! Это корпоративный портал ООО “Высокая Гора”. <br> Чтобы получить доступ к сайту - обратись в департамент HR.
-  <form action="/login" method="POST">
-    <input type="email" name="email" placeholder="email"><br>
-    <input type="password" name="password" placeholder="password"><br>
-    <button type="submit" class="enterButton">Login</button>
-  </form>
-</div>
-  </h3>
-</div>
+    <div class="indexHeader">Привет! Это корпоративный портал ООО “Высокая Гора”. </br> Чтобы получить доступ к сайту - обратись в департамент HR.</div>
+    <form action="/login" method="POST" class="enterForm">
+  <div class="mb-2">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+  </div>
+  <div class="mb-4">
+    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  <button type="submit" class="btn btn-success">Войти</button>
+</form>
+  </div>

@@ -6,14 +6,11 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 require('dotenv').config();
 
-
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const addRouter = require('./routes/addList');
 const checklistRouter = require('./routes/checklist');
 const usersRouter = require('./routes/users');
-const hrCheckListRouter = require('./routes/hrCheckList')
-
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,9 +31,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(async (req, res, next) => {
+app.use((req, res, next) => {
   if (req.session.userId) {
     res.locals.userId = req.session.userId;
+    res.locals.userName = req.session.name;
+    res.locals.admin = req.session.admin;
     return next();
   } next();
 })
@@ -46,8 +45,8 @@ app.use('/addList', addRouter);
 app.use('/login', loginRouter);
 app.use('/checklist', checklistRouter);
 app.use('/users', usersRouter);
-app.use('/hrCheckList', hrCheckListRouter)
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
 });
+

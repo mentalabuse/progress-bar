@@ -6,7 +6,9 @@ const bcrypt = require('bcrypt');
 router.get('/', async (req, res) => {
   try {
     const users = await User.findAll();
-    res.render('users', { users });
+    const prettyUsers = JSON.parse(JSON.stringify(users));
+    const newUsers = prettyUsers.filter(el => el.id != req.session.userId)
+    res.render('users', { newUsers });
   } catch (err) {
     console.log(err);
     res.sendStatus(404);
@@ -30,7 +32,9 @@ router.post('/', async (req, res) => {
         admin: employeeRole,
       },
     );
-    res.sendStatus(200);
+    const user = await User.findOne({where: {email: employeeMail}})
+    const prettyUser = JSON.parse(JSON.stringify(user))
+    res.json(prettyUser.id);
   } catch (err) {
     res.sendStatus(404);
   }

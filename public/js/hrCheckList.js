@@ -1,29 +1,12 @@
 const checkBox = document.querySelector('input[name=checkMyList]')
-const box = document.querySelector('.showList__header')
+const list = document.querySelectorAll('.list')
 
-checkBox.addEventListener('change', async function (event) {
-  event.preventDefault();
+checkBox.addEventListener('change', (event) => {
 
-  if (this.checked) {
-    const response = await fetch('/hrCheckList', {})
-
-    if (response.ok) {
-      const result = (await response.json()).findListHr;
-      console.log(result)
-      lists.remove();
-      result.forEach((elem) => {
-        box.insertAdjacentHTML('afterend', `
-        <div class="lists">
-          <div class="list" id="${elem.id}">
-            <div>${elem.user}</div>
-            <button class="deleteList"></button>
-          </div>
-        </div>
-      `)
-      });
+  list.forEach(el => {
+    if (el.dataset.id != el.dataset.usid) {
+      el.classList.toggle('hide')
     }
-  } else {
-    window.location = '/mainPage';
-  }
+  })
 })
 
