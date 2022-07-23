@@ -11,7 +11,6 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    console.log(req.body);
     const { id } = req.params;
     const { userName, mentorName } = req.body;
     await List.update(

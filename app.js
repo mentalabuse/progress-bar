@@ -1,5 +1,4 @@
 const express = require('express');
-const logger = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -26,14 +25,12 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(checkSession);
-
 
 app.use('/', indexRouter);
 app.use('/addList', addRouter);
